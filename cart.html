@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Your Market</title>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://kit.fontawesome.com/b65380c159.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f3f3f3;
+        }
+        nav {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            height: 75px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: white;
+        }
+        #logo {
+            margin-left: 50px;
+        }
+        #logo > a > img {
+            width: 20.5%;
+            border: none;
+            background-color: #84C225;
+        }
+        #search > input {
+            height: 25px;
+        }
+        #search > button {
+            height: 30px;
+            width: 40px;
+        }
+        #basket2 {
+            display: flex;
+        }
+        #basket2 > div {
+            text-align: right;
+        }
+        #basket2 > div:nth-child(2) {
+            width: 50px;
+        }
+        nav img {
+            width: 20%;
+        }
+        #search {
+            width: 100%;
+            height: 30px;
+            width: 100%;
+        }
+        #search > input {
+            width: 80%;
+        }
+        #cartshow {
+            margin-top: 100px;
+            width: 70%;
+            background-color: white;
+        }
+        #cartshow > p {
+            padding-top: 25px;
+            padding-left: 25px;
+            font-size: 25px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #fortotal {
+            width: 520px;
+            height: 275px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0px;
+            border-radius: 5px;
+            margin-right: 0%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        #fortotal > div {
+            height: 90px;
+        }
+        #a1, #a2, #a4, #a5 {
+            border-bottom: 1px solid grey;
+        }
+        #a3 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            border-left: 1px solid grey;
+        }
+        #a6 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin-top: 20px;
+        }
+        #a2, #a5 {
+            text-align: right;
+        }
+        #a3 {
+            text-align: center;
+        }
+        #a6 {
+            text-align: right;
+        }
+        #a6 > button {
+            height: 50px;
+            width: 180px;
+            font-size: 25px;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #fce17b;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #a6 > button:hover {
+            background-color: #84C225;
+            cursor: pointer;
+            border: 0.25px solid gray;
+        }
+
+        #about {
+            margin: auto;
+            border: 1px solid grey;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        #green {
+            color: #81C784;
+            font-weight: bold;
+        }
+        .black {
+            color: black;
+            font-size: 30px;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+        .left {
+            text-align: left;
+            color: grey;
+        }
+        img {
+            width: 100%;
+        }
+        div {
+            width: 90%;
+            margin: auto;
+        }
+        div > img {
+            border: 0.25px solid #E0E0E0;
+        }
+        h2 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(68, 68, 68);
+        }
+        #below2 {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 20px;
+        }
+        #below2 > table td {
+            border: none;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        table td,
+        table th {
+        border: 1px solid #ddd;
+        padding: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
+        }
+        #cartshow > table tr:nth-child(even) {
+        background-color: #8caacf;
+        }
+        #cartshow > table tr:hover {
+        background-color: #ddd;
+        }
+        
+
+
+        .companyvalue {
+            color: grey;
+            font-size: 12px;
+        }
+        .namevalue {
+            font-size: 16px;
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+        .price2value {
+            font-size: 16px;
+            text-align: right;
+        }
+        .price1value {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: grey;
+            text-align: right;
+        }
+        .quantityvalue {
+            text-align: center;
+        }
+        .subtotalvalue {
+            text-align: right;
+        }
+        .dltvalue {
+            margin: 25px 20px 20px 25px;
+        }
+        .savingsvalue {
+            text-align: right;
+            color: #be1e2d;
+            font-size: 16px;
+        }
+
+        #th1, #th2, #th3, #th4, #th5, #th6 {
+            background-color: #555555;
+            color: white;
+            padding: 10px;
+        }
+        #th1 {
+            width: 50%;
+        }
+        #th2 {
+            width: 20%
+        }
+        #th3 {
+            width: 14%;
+        }
+        #th4 {
+            width: 5%;
+        }
+        #th5 {
+            width: 10%;
+        }
+        #th6 {
+            width: 5%;
+        }
+        td {
+            text-align: left;
+        }
+        td > img {
+            width: 5%;
+        }
+        .tdgreen {
+            color: #81C784;
+            width: 20%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="logo">
+            <a href="./index.html"><img src="data:image/png;base64,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"></a>
+        </div>
+        <div id="search">
+            <!-- <input id="input" type="text" placeholder="Search for Products...">
+            <button id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+        </div>
+        <div id="basket">
+            <div id="basket2">
+                <div>
+                    <img style="width: 10%;" src="https://media.istockphoto.com/id/1206806317/vector/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=1RRQJs5NDhcB67necQn1WCpJX2YMfWZ4rYi1DFKlkNA=" alt="">
+                </div>
+                <div>
+                    <a href=""><span id="cart">0</span><span> items</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="cartshow">
+        <p>Your Basket ( <span id="cart2"></span> items) </p>
+        <table>
+            <thead>
+                <tr>
+                    <th id="th1">ITEM DESCRIPTION</th>
+                    <th id="th2">UNIT PRICE</th>
+                    <th id="th3">QUANTITY</th>
+                    <th id="th4">SUBTOTAL</th>
+                    <th id="th5"> </th>
+                    <th id="th6">SAVINGS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Append data here -->
+            </tbody>
+        </table>
+        <div id="fortotal">
+            <div id="a1"></div>
+            <div id="a2"></div>
+            <div id="a3"></div>
+            <div id="a4"></div>
+            <div id="a5"></div>
+            <div id="a6"></div>
+        </div>
+    </div>
+    <div id="below2">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="tdgreen">POPULAR CATEGORIES:</td>
+                    <td>Sunflower Oils, Wheat Atta, Ghee, Milk, Health Drinks, Flakes, Organic F&V, Namkeen, Eggs, Floor Cleaners, Other Juices, Leafy Vegetables, Frozen Veg Food, Diapers & Wipes.</td>
+                </tr>
+                <tr>
+                    <td class="tdgreen">POPULAR BRANDS:</td>
+                    <td>Amul, Nescafe, MTR, RED BULL, elite cake, Pediasure, Yummiez, Yera, Yakult, Britannia, Wow Momo, Fortune, Haldirams, Ferrero, Lays, Patanjali, McCain, kwality walls, Cadbury Dairy Milk, Pedigree.</td>
+                </tr>
+                <tr>
+                    <td class="tdgreen">CITIES WE SERVE:</td>
+                    <td>Bangalore, Hyderabad, Mumbai, Pune, Chennai, Delhi, Mysore, Madurai, Coimbatore, Vijayawada-Guntur, Kolkata, Ahmedabad-Gandhinagar, Nashik Business, Lucknow-Kanpur, Gurgaon, Vadodara, Visakhapatnam, Surat, Nagpur, Patna, Indore, Chandigarh Tricity, Jaipur, Bhopal, Noida-Ghaziabad, Kochi, Krishna District, Bhubaneshwar-Cuttack, Guwahati, Renigunta, Hubli, Davanagere, Trichy, Amravati, Raipur, Rajkot, Gwalior, Bareilly, Allahabad, Hyderabad Rural, Bangalore Rural, Chennai Rural, Vizag Rural, Lucknow Rural, Noida Rural, Ahmedabad Rural, Bhopal Rural, Bhubaneswar Rural, Coimbatore Rural, Chandigarh Rural, Gurugram Rural, Guwahati Rural, Indore Rural, Kochi Rural, Kolkata Rural, Mumbai Rural, Mysore Rural, Nagpur Rural, Patna Rural, Pune Rural, Surat Rural, Vadodara Rural, Jaipur Rural, Ranchi, Nashik, Agra, Kozhikode.</td>
+                </tr>
+                <tr>
+                    <td class="tdgreen">PAYMENT OPTIONS:</td>
+                    <td>
+                        <img src="https://cdn.shopify.com/s/files/1/0353/8056/0012/files/payment_cod.svg?v=1663912907" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Visa-europe-logo.gif" alt="">
+                        <img src="https://img.etimg.com/thumb/msid-92061657,width-300,imgsize-10384,,resizemode-4,quality-100/axis-bank-and-indian-oil-launch-co-branded-rupay-contactless-credit-card.jpg" alt="">
+                        <img src="https://i0.wp.com/www.mobileworldlive.com/wp-content/uploads/2013/06/300px-MasterCard_Logo.png?w=300&ssl=1" alt="">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let cart = JSON.parse(localStorage.getItem("cartdata")) || [];
+    let cartvalue = document.getElementById("cart");
+    let cartvalue2 = document.getElementById("cart2");
+    let tbody = document.querySelector("tbody");
+    let cartshow = document.getElementById("cartshow");
+    let a1 = document.getElementById("a1");
+    let a2 = document.getElementById("a2");
+    let a3 = document.getElementById("a3");
+    let a4 = document.getElementById("a4");
+    let a5 = document.getElementById("a5");
+    let a6 = document.getElementById("a6");
+    let fortotal = document.getElementById("fortotal");
+
+    
+    display(cart);
+    cartshowing(cart);
+
+    function cartshowing (cart) {
+        a1.innerHTML = null;
+        a2.innerHTML = null;
+        a3.innerHTML = null;
+        a4.innerHTML = null;
+        a5.innerHTML = null;
+        a6.innerHTML = null;
+        let a21data = 0;
+        let a32data = 0;
+        cart.forEach((element,index)=>{
+            a21data += element.price2 * element.quantity;
+            a32data += ((element.price1-element.price2) * element.quantity);
+        })
+        let a11 = document.createElement("p");
+        let a12 = document.createElement("p");
+        a11.innerText = "Subtotal :";
+        a12.innerText = "Delivery Charges :";
+        a1.append(a11,a12);
+        let a21 = document.createElement("p");
+        let a22 = document.createElement("p");
+        a21.innerText = "Rs. "+ a21data;
+        a22.innerText = "Free";
+        a2.append(a21,a22);
+        let a31 = document.createElement("p");
+        a31.innerText = "You saved!";
+        let a32 = document.createElement("h3");
+        a32.innerText = "Rs. "+ a32data.toFixed(2);
+        a3.append(a31,a32);
+        let a41 = document.createElement("h1");
+        a41.innerText = "TOTAL";
+        a4.append(a41);
+        let a51 = document.createElement("h1");
+        a51.innerText = "Rs. "+ a21data;
+        a5.append(a51);
+        let a61 = document.createElement("button");
+        a61.innerText = "CHECKOUT";
+        a6.append(a61);
+        a61.addEventListener("click", ()=>{
+            alert ("Do your payment.");
+            window.location.href = "payment.html";
+            cart = [];
+            let value = null;
+            localStorage.setItem("cartdata", JSON.stringify(cart));
+            localStorage.setItem("signin", JSON.stringify(value));
+            display(cart);
+            cartshowing(cart);
+        })
+    }
+
+    function display (data) {
+        cartvalue.innerText = 0;
+        cartvalue2.innerText = 0;
+        tbody.innerHTML = null;
+        data.forEach((element,index) => {
+            cartvalue.innerText = data.length;
+            cartvalue2.innerText = data.length;
+            let tr = document.createElement("tr");
+            let item = document.createElement("td");
+            let company = document.createElement("p");
+            company.setAttribute("class", "companyvalue");
+            company.innerText = element.company;
+            let name = document.createElement("p");
+            name.setAttribute("class", "namevalue")
+            name.innerText = element.name;
+            item.append(company, name);
+            let price = document.createElement("td");
+            let price2 = document.createElement("p");
+            price2.setAttribute("class", "price2value");
+            price2.innerText = "Rs. " + element.price2;
+            let price1 = document.createElement("p");
+            price1.setAttribute("class", "price1value");
+            price1.innerText = "Rs. " + element.price1;
+            price.append(price2,price1);
+            let decrease = document.createElement("button");
+            decrease.innerText = "-";
+            let increase = document.createElement("button");
+            increase.innerText = "+";
+            let quantitydata = document.createElement("td");
+            quantitydata.setAttribute("class", "quantityvalue")
+            let quantity = document.createElement("span");
+            quantity.innerText = " "+element.quantity+" ";
+            quantitydata.append(decrease,quantity,increase);
+            let subtotal = document.createElement("td");
+            subtotal.setAttribute("class", "subtotalvalue")
+            subtotal.innerText = "Rs. "+(element.price2 * element.quantity);
+            let dlttd = document.createElement("td");
+            let dlt = document.createElement("button");
+            dlt.setAttribute("class", "dltvalue")
+            dlt.innerText = "Delete";
+            dlttd.append(dlt);
+            let savings = document.createElement("td");
+            savings.setAttribute("class", "savingsvalue")
+            savings.innerText = ((element.price1 - element.price2)*element.quantity).toFixed(2);
+            decrease.addEventListener("click", ()=>{
+            if(quantity.innerText > 1) {
+                data[index].quantity -= 1;
+                localStorage.setItem("cartdata", JSON.stringify(data));
+                display(data);
+                cartshowing(data);
+            }
+            });
+            increase.addEventListener("click", ()=>{
+                data[index].quantity += 1;
+                localStorage.setItem("cartdata", JSON.stringify(data));
+                display(data);
+                cartshowing(data);
+            });
+            dlt.addEventListener("click", ()=>{
+                let data = JSON.parse(localStorage.getItem("cartdata"));
+                data.splice(index,1);
+                localStorage.setItem("cartdata", JSON.stringify(data));
+                display(data);
+                cartshowing(data);
+            })
+
+            tr.append(item,price,quantitydata,subtotal,dlttd,savings);
+            tbody.append(tr);
+        });
+    }
+  
+</script>
+</html>
